@@ -4,9 +4,15 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @your_address = request.location.address
-    @your_latitude = request.location.latitude
-    @your_longitude = request.location.longitude
+    if Rails.env.development?
+      #Geocoder.ipinfo('123.252.188.186')
+      req_loc = Geocoder.search(request.remote_ip).first
+    else
+      req_loc = request.location
+    end
+    @your_address = req_loc.address
+    @your_latitude = req_loc.latitude
+    @your_longitude = req_loc.longitude
     @locations = Location.all
   end
 
@@ -72,6 +78,6 @@ class LocationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_params
-      params.require(:location).permit(:address, :latitude, :longitude)
+      params.require(:location).permit(:name, :address, :latitude, :longitude)
     end
 end

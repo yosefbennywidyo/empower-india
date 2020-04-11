@@ -2,28 +2,24 @@
 <h1>Your Location</h1>
 
   <div class="field">
-    <p>Address: </p>
-    <%= @your_address %>
+    <p>Address: <%= @your_address %></p>
   </div>
 
   <div class="field">
-    <p>Latitude: </p>
-    <%= @your_latitude %>
+    <p>Latitude: <%= @your_latitude %></p>
   </div>
 
   <div class="field">
-    <p>Longitude: </p>
-    <%= @your_longitude %>
+    <p>Longitude: <%= @your_longitude %></p>
   </div>
 
   <h3>Nearby Hospital</h3>
 
   <ul>
-    <% for location in @locations %>
-      <li><%= link_to location.address, location %> (<%= location.bearing_to(request.location.address) %> miles)</li>
-    <% end %>
+  <% @locations.each do |location| %>
+    <li><%= link_to location.address, location %> (<%= location.distance_from(@your_address) %> miles)</li>
+  <% end %>
   </ul>
-
 
 <%
 =begin %>

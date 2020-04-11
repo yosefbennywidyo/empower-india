@@ -2,6 +2,7 @@ Geocoder.configure(
 
   # street address geocoding service (default :nominatim)
   #lookup: :yandex,
+  lookup: :google,
 
   # IP address geocoding service (default :ipinfo_io)
   #ip_lookup: :maxmind,

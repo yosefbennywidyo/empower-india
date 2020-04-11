@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = Location.near(request.location.address, 50, :order => :distance)
   end
 
   # GET /locations/1

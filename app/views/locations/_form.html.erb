@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
@@ -24,14 +29,6 @@
   <div class="field">
     <%= form.label :longitude %>
     <%= form.text_field :longitude %>
-  </div>
-
-  <div>
-    <%= request.location.latitude %>
-  </div>
-
-  <div>
-    <%= request.location.longitude %>
   </div>
 
   <div class="actions">

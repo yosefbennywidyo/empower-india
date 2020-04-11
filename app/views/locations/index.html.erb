@@ -1,6 +1,25 @@
 <p id="notice"><%= notice %></p>
+<h1>Your Location</h1>
 
-<h1>Locations</h1>
+  <div class="field">
+    <p>Address: </p>
+    <%= request.location.address %>
+  </div>
+
+  <div class="field">
+    <p>Latitude: </p>
+    <%= request.location.latitude %>
+  </div>
+
+  <div class="field">
+    <p>Longitude: </p>
+    <%= request.location.longitude %>
+  </div>
+
+
+<%
+=begin %>
+<h2>Hospital Locations</h2>
 
 <table>
   <thead>
@@ -29,3 +48,5 @@
 <br>
 
 <%= link_to 'New Location', new_location_path %>
+<%
+=end %>

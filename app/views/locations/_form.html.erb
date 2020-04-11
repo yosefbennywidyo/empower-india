@@ -26,6 +26,14 @@
     <%= form.text_field :longitude %>
   </div>
 
+  <div>
+    <%= request.location.latitude %>
+  </div>
+
+  <div>
+    <%= request.location.longitude %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

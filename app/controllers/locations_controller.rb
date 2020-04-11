@@ -4,6 +4,9 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
+    @your_address = request.location.address
+    @your_latitude = request.location.latitude
+    @your_longitude = request.location.longitude
     @locations = Location.all
   end
 

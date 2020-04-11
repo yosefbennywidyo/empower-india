@@ -20,7 +20,7 @@
 
   <ul>
     <% for location in @locations %>
-      <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+      <li><%= link_to location.address, location %> (<%= location.bearing_to(request.location.address) %> miles)</li>
     <% end %>
   </ul>
 
